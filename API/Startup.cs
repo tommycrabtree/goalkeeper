@@ -1,3 +1,4 @@
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,6 +23,7 @@ namespace api
         {
 
             services.AddControllers();
+            services.AddScoped<IGoalRepository, GoalRepository>();
             services.AddDbContext<GoalContext>(x =>
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
             

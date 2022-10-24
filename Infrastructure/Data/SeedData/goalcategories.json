@@ -1,0 +1,38 @@
+[
+    {
+      "Id": 1,
+      "Name": "shoes"
+    },
+    {
+      "Id": 2,
+      "Name": "clothes"
+    },
+    {
+      "Id": 3,
+      "Name": "watches"
+    },
+    {
+      "Id": 4,
+      "Name": "backpacks"
+    },
+    {
+      "Id": 5,
+      "Name": "computers"
+    },
+    {
+      "Id": 6,
+      "Name": "mice"
+    },
+    {
+      "Id": 7,
+      "Name": "vehicles"
+    },
+    {
+      "Id": 8,
+      "Name": "recorders"
+    },
+    {
+      "Id": 9,
+      "Name": "cologne"
+    }
+]

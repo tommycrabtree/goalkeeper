@@ -1,4 +1,5 @@
 using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,23 +11,35 @@ namespace API.Controllers;
 
 public class GoalsController : ControllerBase
 {
-    private readonly GoalContext _context;
-    public GoalsController(GoalContext context)
+    private readonly IGoalRepository _repo;
+    public GoalsController(IGoalRepository repo)
     {
-        _context = context;
+        _repo = repo;
     }
 
     [HttpGet]
     public async Task<ActionResult<List<Goal>>> GetGoals()
     {
-        var goals = await _context.Goals.ToListAsync();
-        
+        var goals = await _repo.GetGoalsAsync();
+
         return Ok(goals);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Goal>> GetGoal(int id)
     {
-        return await _context.Goals.FindAsync(id);
+        return await _repo.GetGoalByIdAsync(id);
+    }
+
+    [HttpGet("brands")]
+    public async Task<ActionResult<GoalBrand>> GetGoalBrands()
+    {
+        return Ok(await _repo.GetGoalBrandsAsync());
+    }
+
+    [HttpGet("categories")]
+    public async Task<ActionResult<GoalCategory>> GetGoalCategories()
+    {
+        return Ok(await _repo.GetGoalCategoriesAsync());
     }
 }

@@ -1,0 +1,86 @@
+[
+    {
+      "Name": "Gazelle Indoor Mesa",
+      "PictureUrl": "images/products/mesa.png",
+      "GoalBrandId": 1,
+      "GoalCategoryId": 1
+    },
+    {
+      "Name": "Odyssey TRVLR Backpack",
+      "PictureUrl": "images/products/odysseybackpack.png",
+      "GoalBrandId": 4,
+      "GoalCategoryId": 4
+    },
+    {
+      "Name": "GG1000 1A8",
+      "PictureUrl": "images/products/gg10001a8.png",
+      "GoalBrandId": 6,
+      "GoalCategoryId": 3
+    },
+    {
+      "Name": "Sony Digital Recorder",
+      "PictureUrl": "images/products/sonyrecorder.png",
+      "GoalBrandId": 9,
+      "GoalCategoryId": 8
+    },
+    {
+      "Name": "Hugo Boss Cologne",
+      "PictureUrl": "images/products/bosscologne.png",
+      "GoalBrandId": 11,
+      "GoalCategoryId": 9
+    },
+    {
+      "Name": "ACW x Converse Chuck Taylor 70 Light",
+      "PictureUrl": "images/products/acwchuck70light.png",
+      "GoalBrandId": 2,
+      "GoalCategoryId": 1
+    },
+    {
+      "Name": "Logitech G502 Hero Mouse",
+      "PictureUrl": "images/products/logitechg502.png",
+      "GoalBrandId": 5,
+      "GoalCategoryId": 6
+    },
+    {
+      "Name": "Honda Ridgeline EV",
+      "PictureUrl": "images/products/hondaridgelineev.png",
+      "GoalBrandId": 10,
+      "GoalCategoryId": 7
+    },
+    {
+      "Name": "Air Mowabb OG",
+      "PictureUrl": "images/products/airmowabb.png",
+      "GoalBrandId": 8,
+      "GoalCategoryId": 1
+    },
+    {
+      "Name": "Surface Pro 9",
+      "PictureUrl": "images/products/surfacepro9.png",
+      "GoalBrandId": 3,
+      "GoalCategoryId": 5
+    },
+    {
+      "Name": "GWG1000 1A3",
+      "PictureUrl": "images/products/gwg10001a3.png",
+      "GoalBrandId": 6,
+      "GoalCategoryId": 3
+    },
+    {
+      "Name": "GG1000 1A5",
+      "PictureUrl": "images/products/gg10001a5.png",
+      "GoalBrandId": 6,
+      "GoalCategoryId": 3
+    },
+    {
+      "Name": "Model Y",
+      "PictureUrl": "images/products/teslamodely.png",
+      "GoalBrandId": 7,
+      "GoalCategoryId": 7
+    },
+    {
+      "Name": "Jordan 3 Retro OG Black Cement",
+      "PictureUrl": "images/products/jordan3.png",
+      "GoalBrandId": 8,
+      "GoalCategoryId": 1
+    }
+]

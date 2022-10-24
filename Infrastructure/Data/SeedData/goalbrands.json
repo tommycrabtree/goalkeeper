@@ -1,0 +1,46 @@
+[
+    {
+      "Id": 1,
+      "Name": "adidas"
+    },
+    {
+      "Id": 2,
+      "Name": "converse"
+    },
+    {
+      "Id": 3,
+      "Name": "microsoft"
+    },
+    {
+      "Id": 4,
+      "Name": "oneill"
+    },
+    {
+      "Id": 5,
+      "Name": "logitech"
+    },
+    {
+      "Id": 6,
+      "Name": "gshock"
+    },
+    {
+      "Id": 7,
+      "Name": "tesla"
+    },
+    {
+      "Id": 8,
+      "Name": "nike"
+    },
+    {
+      "Id": 9,
+      "Name": "sony"
+    },
+    {
+      "Id": 10,
+      "Name": "honda"
+    },
+    {
+      "Id": 11,
+      "Name": "hugoboss"
+    }
+]

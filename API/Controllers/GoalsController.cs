@@ -1,5 +1,8 @@
+using API.DTOs;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,35 +14,52 @@ namespace API.Controllers;
 
 public class GoalsController : ControllerBase
 {
-    private readonly IGoalRepository _repo;
-    public GoalsController(IGoalRepository repo)
+    private readonly IGenericRepository<Goal> _goalRepo;
+    private readonly IGenericRepository<GoalBrand> _goalBrandRepo;
+    private readonly IGenericRepository<GoalCategory> _goalCategoryRepo;
+    private readonly IMapper _mapper;
+
+    public GoalsController(IGenericRepository<Goal> goalRepo,
+        IGenericRepository<GoalBrand> goalBrandRepo,
+        IGenericRepository<GoalCategory> goalCategoryRepo,
+        IMapper mapper)
     {
-        _repo = repo;
+        _mapper = mapper;
+        _goalCategoryRepo = goalCategoryRepo;
+        _goalBrandRepo = goalBrandRepo;
+        _goalRepo = goalRepo;
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<Goal>>> GetGoals()
+    public async Task<ActionResult<IReadOnlyList<GoalToReturnDTO>>> GetGoals()
     {
-        var goals = await _repo.GetGoalsAsync();
+        var spec = new GoalsWithBrandsAndCategoriesSpecification();
 
-        return Ok(goals);
+        var goals = await _goalRepo.ListAsync(spec);
+
+        return Ok(_mapper.Map<IReadOnlyList<Goal>,
+            IReadOnlyList<GoalToReturnDTO>>(goals));
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Goal>> GetGoal(int id)
+    public async Task<ActionResult<GoalToReturnDTO>> GetGoal(int id)
     {
-        return await _repo.GetGoalByIdAsync(id);
+        var spec = new GoalsWithBrandsAndCategoriesSpecification(id);
+
+        var goal = await _goalRepo.GetEntityWithSpec(spec);
+
+        return _mapper.Map<Goal, GoalToReturnDTO>(goal);
     }
 
     [HttpGet("brands")]
     public async Task<ActionResult<GoalBrand>> GetGoalBrands()
     {
-        return Ok(await _repo.GetGoalBrandsAsync());
+        return Ok(await _goalBrandRepo.ListAllAsync());
     }
 
     [HttpGet("categories")]
     public async Task<ActionResult<GoalCategory>> GetGoalCategories()
     {
-        return Ok(await _repo.GetGoalCategoriesAsync());
+        return Ok(await _goalCategoryRepo.ListAllAsync());
     }
 }

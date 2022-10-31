@@ -1,4 +1,5 @@
 using API.DTOs;
+using API.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -9,10 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-
-public class GoalsController : ControllerBase
+public class GoalsController : BaseAPIController
 {
     private readonly IGenericRepository<Goal> _goalRepo;
     private readonly IGenericRepository<GoalBrand> _goalBrandRepo;
@@ -42,11 +40,15 @@ public class GoalsController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(APIResponse), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<GoalToReturnDTO>> GetGoal(int id)
     {
         var spec = new GoalsWithBrandsAndCategoriesSpecification(id);
 
         var goal = await _goalRepo.GetEntityWithSpec(spec);
+
+        if (goal == null) return NotFound(new APIResponse(404));
 
         return _mapper.Map<Goal, GoalToReturnDTO>(goal);
     }

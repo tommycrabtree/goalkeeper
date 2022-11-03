@@ -10,6 +10,7 @@ public class GoalConfiguration : IEntityTypeConfiguration<Goal>
     {
         builder.Property(g => g.Id).IsRequired();
         builder.Property(g => g.Name).IsRequired();
+        // builder.Property(g => g.Price).HasColumnType("decimal(18,2)");
         builder.Property(g => g.PictureUrl).IsRequired();
         builder.HasOne(b => b.GoalBrand).WithMany()
             .HasForeignKey(g => g.GoalBrandId);

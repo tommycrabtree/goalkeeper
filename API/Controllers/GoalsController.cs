@@ -1,12 +1,11 @@
 using API.DTOs;
 using API.Errors;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
-using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
@@ -29,14 +28,22 @@ public class GoalsController : BaseAPIController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<GoalToReturnDTO>>> GetGoals()
+    public async Task<ActionResult<Pagination<GoalToReturnDTO>>> GetGoals(
+        [FromQuery]GoalSpecParams goalParams)
     {
-        var spec = new GoalsWithBrandsAndCategoriesSpecification();
+        var spec = new GoalsWithBrandsAndCategoriesSpecification(goalParams);
+
+        var countSpec = new GoalWithFiltersForCountSpecification(goalParams);
+
+        var totalItems = await _goalRepo.CountAsync(countSpec);
 
         var goals = await _goalRepo.ListAsync(spec);
 
-        return Ok(_mapper.Map<IReadOnlyList<Goal>,
-            IReadOnlyList<GoalToReturnDTO>>(goals));
+        var data = _mapper.Map<IReadOnlyList<Goal>,
+            IReadOnlyList<GoalToReturnDTO>>(goals);
+
+        return Ok(new Pagination<GoalToReturnDTO>(goalParams.PageIndex,
+            goalParams.PageSize, totalItems, data));
     }
 
     [HttpGet("{id}")]

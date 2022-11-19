@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IBrand } from '../shared/models/brand';
 import { ICategory } from '../shared/models/category';
+import { IGoal } from '../shared/models/goal';
 import { GoalkeeperParams } from '../shared/models/goalkeeperParams';
 import { IPagination } from '../shared/models/pagination';
 
@@ -40,6 +41,10 @@ export class GoalkeeperService {
           return response.body;
         })
       );
+  }
+
+  getGoal(id: number) {
+    return this.http.get<IGoal>(this.baseUrl + 'goals/' + id);
   }
 
   getBrands() {

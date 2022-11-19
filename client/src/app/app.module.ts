@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { GoalkeeperModule } from './goalkeeper/goalkeeper.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { GoalkeeperModule } from './goalkeeper/goalkeeper.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    GoalkeeperModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@
   <!-- <div class="card-header py-3"> -->
   <div class="card-body d-flex flex-column">
     <!-- <h4 class="my-0 fw-normal">Free</h4> -->
-    <a href="#">
+    <a routerLink="/goalkeeper/{{goal.id}}">
       <h6 class="text-uppercase">{{goal.name}}</h6>
     </a>
   </div>
@@ -22,7 +22,7 @@
 
     <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button> -->
     <button type="button" class="btn btn-outline-secondary fa fa-shopping-cart mr-2"></button>
-    <button type="button" class="btn btn-outline-secondary">Profile</button>
+    <button routerLink="/goalkeeper/{{goal.id}}" type="button" class="btn btn-outline-secondary">Profile</button>
   </div>
 
 </div>

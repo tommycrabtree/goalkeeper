@@ -20,6 +20,7 @@ import { HomeModule } from './home/home.module';
     CoreModule,
     HomeModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

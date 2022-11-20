@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { IBrand } from '../shared/models/brand';
 import { ICategory } from '../shared/models/category';
 import { IGoal } from '../shared/models/goal';
@@ -11,7 +12,7 @@ import { IPagination } from '../shared/models/pagination';
   providedIn: 'root'
 })
 export class GoalkeeperService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

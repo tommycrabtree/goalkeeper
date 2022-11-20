@@ -104,7 +104,7 @@ export class GoalkeeperComponent implements OnInit {
   onReset() {
     this.searchTerm.nativeElement.value = '';
     this.goalkeeperParams = new GoalkeeperParams();
-    // this.goalkeeperParams.pageNumber = 1;
+    this.goalkeeperParams.pageNumber = 1;
     this.getGoals();
   }
 }

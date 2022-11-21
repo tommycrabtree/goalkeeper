@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-public class FallbackToController : Controller
+public class FallbackController : Controller
 {
     public IActionResult Index()
     {

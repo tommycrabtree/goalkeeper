@@ -24,7 +24,7 @@ namespace api
             services.AddAutoMapper(typeof(MappingProfiles));
             
             services.AddDbContext<GoalContext>(x =>
-                x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+                x.UseNpgsql(_config.GetConnectionString("DefaultConnection")));
             
             services.AddApplicationServices();
             
